@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# makes the email-LED pulse for ~10 seconds
+# -p = email pulse, -o = email off
+
+mx610hack -p /dev/usb/hiddev0 && sleep 10 && mx610hack -o /dev/usb/hiddev0 

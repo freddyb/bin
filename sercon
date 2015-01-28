@@ -1,0 +1,2 @@
+#!/bin/bash
+screen -c /dev/null /dev/ttyUSB0 38400 8n1

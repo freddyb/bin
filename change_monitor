@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "x$1" == "xon" ]]
+ then
+ echo "Turning on VGA"
+ xrandr --output VGA --left-of LVDS --auto
+ echo "Moving panel to second display"
+ gconftool-2 --set "/apps/panel/toplevels/top_panel_screen0/monitor" --type integer "1"
+ gconftool-2 --set "/apps/panel/toplevels/bottom_panel_screen0/monitor" --type integer "1"
+elif [[ "x$1" == "xoff" ]]
+ then
+ echo "Turning off VGA"
+ xrandr --output VGA --left-of LVDS --off
+fi

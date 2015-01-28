@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+if ARGV.empty?
+  puts "Usage: #{$0} <filesize> <kbps>"
+  exit
+end
+print "Downloading #{ARGV[0].to_i} MB with #{ARGV[1].to_i} Kb/s will take an average of "
+result = (ARGV[0].to_i/ (ARGV[1].to_i/1000.0)) /60/60
+format = "hours"
+if result < 1.0
+    result*=60
+    format = "minutes"
+end
+puts "#{result.to_s[0,5]} #{format}"
+

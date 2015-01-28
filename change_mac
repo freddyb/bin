@@ -1,0 +1,10 @@
+#!/bin/sh
+a=`head -c 1 /dev/random | xxd -ps`
+b=`head -c 1 /dev/random | xxd -ps`
+c=`head -c 1 /dev/random | xxd -ps`
+d=`head -c 1 /dev/random | xxd -ps`
+e=`head -c 1 /dev/random | xxd -ps`
+echo "Setting MAC address to random value: $a:$b:$b:$c:$d:$e"
+echo sudo ifconfig wlan0 hw ether $a:$b:$b:$c:$d:$e  
+#sudo ip link set dev wlan0 addr $a:$b:$b:$c:$d:$e # try this, if ifconfig won't work
+#ifconfig wlan0 # show result..

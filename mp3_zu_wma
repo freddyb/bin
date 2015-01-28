@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "mp3 to wma script, based on something from the ubuntu-forums."
+echo 
+echo "Please make sure, that your input file does NOT contain spaces, uppercase-letters, dashes or lowerscore dashes!"
+read -p "Enter to Continue or ^C to abort"
+echo
+#mplayer -vo null -vc dummy -af resample=44100 -ao pcm:waveheader $1 && lame -m s -V 3 audiodump.wav -o $1
+#mv "$1" "`basename "$i" .wma`.mp3"; 
+#rm audiodump.wav
+echo "Please remember to insert ID3-Tags!"
+

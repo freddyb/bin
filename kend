@@ -1,0 +1,5 @@
+#!/bin/sh
+##uhkal.rb:66: syntax error, unexpected $end, expecting kEND
+echo kEND = 'end'
+echo \$end = EOF
+

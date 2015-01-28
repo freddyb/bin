@@ -1,0 +1,2 @@
+#!/bin/bash
+setxkbmap -print | grep -q dvorak && setxkbmap -option grp:alt_shift_toggle de || setxkbmap -option grp:alt_shift_toggle de-jannahdvorak

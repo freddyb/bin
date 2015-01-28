@@ -1,0 +1,2 @@
+#!/bin/sh
+zenity --question --title="Reboot" --text="Do you really want to reboot?" && dbus-send --system --print-reply  --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager  org.freedesktop.ConsoleKit.Manager.Restart

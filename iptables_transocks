@@ -1,0 +1,28 @@
+#!/bin/sh
+LOCAL_NET=192.168.1.0/16
+#LOCAL_NET=172.16.3.0/24
+echo "Is you localnet setting correct? Please check."
+echo "Local Net: $LOCAL_NET"
+read foo
+
+# Flush all previous nat rules, you might not want to include this line if you already have other rules setup
+iptables -t nat --flush
+
+iptables -t nat -X SOCKSIFY
+iptables -t nat -N SOCKSIFY
+
+# Exceptions for local traffic
+iptables -t nat -A SOCKSIFY -o lo -j RETURN
+iptables -t nat -A SOCKSIFY --dst 127.0.0.1 -j RETURN
+iptables -t nat -A SOCKSIFY --dst $LOCAL_NET -j RETURN
+#iptables -t nat -A SOCKSIFY --src $LOCAL_ADDR -j RETURN
+# Add extra local nets here as necessary
+
+# Only proxy traffic for programs run with group 'transocks'
+iptables -t nat -A SOCKSIFY -m owner ! --gid-owner transocks -j RETURN
+
+# Send to transocks
+iptables -t nat -A SOCKSIFY -p tcp -j REDIRECT --to-port 1212
+
+# Socksify traffic leaving this host:
+iptables -t nat -A OUTPUT -p tcp --syn -j SOCKSIFY

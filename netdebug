@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+
+import subprocess
+
+
+def get_default_gw():
+    ''' returns ip address of default gateway as a string'''
+    res = subprocess.check_output(['route','-n'])
+    for line in res.split('\n'):
+        if line.startswith('0.0.0.0'):
+            return line.split()[1]
+    
+
+def get_ip_local(with_scope=False):
+    """ returns ip address as a string,
+        skips adresses that starts with 127
+        suffixes with /xx if with_scope=True
+        """
+    res = subprocess.check_output(['ip','-o','addr'])
+    for line in res.split('\n'):
+        if 'inet ' in line:
+            addrwithscope = line.split()[3]
+            if addrwithscope.startswith('127'): continue
+            if with_scope:
+                return addrwithscope
+            else:
+                return addrwithscope.split('/')[0]
+
+def ping_ip(ip):
+    try: 
+        ping_res = subprocess.check_output(['ping', '-c1', '-q', get_default_gw()])
+        return True
+    except subprocess.CalledProcessError, e:
+        return False
+
+def host_lookup(s):
+    try: 
+        host_res = subprocess.check_output(['host', s])
+        return True
+    except subprocess.CalledProcessError, e:
+        return False
+
+def check_tcp():
+    '''
+    no param handling in check_output, but static address
+    -> shell=True is dangerous!!
+    '''
+    try: 
+        nc_res = subprocess.check_call('echo|nc -v example.org 80', shell=True)
+        return True
+    except subprocess.CalledProcessError, e:
+        return False
+    
+    
+def check_for_output(s):
+    if s: return s
+    else:
+        return "ERROR"
+
+if __name__ == '__main__':
+    import sys
+    print "** Gathering Local Information"
+    print "\tLocal IP Address", check_for_output(get_ip_local())
+    print "\tDefault Gateway", check_for_output(get_default_gw()),
+    if ping_ip(get_default_gw()):
+        print '- pings :)'
+    else:
+        print '- no ping response :('
+        sys.exit(1)
+    print "\tDNS:",
+    if host_lookup('ripe.net'):
+        print "Works :)"
+    else:
+        print "Failed :("
+    print '** Trying to reach the net'
+    print "\tPinging Nameserver (RIPE):",
+    if ping_ip("8.8.8.8"):
+        print 'Works! :)'
+    else:
+        print "Unreachable :("
+    print '\tConnecting to example.org:',
+    if check_tcp():
+        print "Works. :)"
+    else:
+        print "Failed :("

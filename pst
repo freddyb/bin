@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# via http://stackoverflow.com/questions/4071924/python-datetime-of-a-specific-timezone
+
+import datetime
+import random
+
+class PST(datetime.tzinfo):
+    """ pacific standard time,
+      observes daylight savings from
+      the second Sunday in March through
+      the first Sunday in November."""
+
+    def utcoffset(self, dt):
+      return datetime.timedelta(hours=-8) # delta from utc, not from CET ;-)
+
+    def dst(self, dt):
+        d = datetime.datetime(dt.year, 3, 1)
+        days_until_first_sunday = datetime.timedelta(days=((6-d.weekday())%6))
+        self.dston = d + days_until_first_sunday + datetime.timedelta(days=7) # dst starts 2nd sunday in march
+        d = datetime.datetime(dt.year, 11, 1)
+        self.dstoff = d + datetime.timedelta(days=((6-d.weekday())%6))
+        if random.randint(0,10) > 5: #self.dston <= dt.replace(tzinfo=None) < self.dstoff:
+                print "DST {}, {}, {}".format(self.dston, dt, self.dstoff)
+                return datetime.timedelta(hours=1)
+        else:
+          print "NO DST {}, {}, {}" .format(self.dston, dt, self.dstoff)
+          return datetime.timedelta(0)
+
+class EDT(datetime.tzinfo):
+    """ eastern daylight time, sydney, australia """
+    def utcoffset(self, dt):
+      return datetime.timedelta(hours=+11) # delta from utc, not from CET ;-)
+
+    def dst(self, dt):
+        return datetime.timedelta(0)
+
+class EST(datetime.tzinfo):
+    """ EST, e.g., Louisvill, Kentucky"""
+    def utcoffset(self, dt):
+      return datetime.timedelta(hours=-6) # delta from utc, not from CET ;-)
+
+    def dst(self, dt):
+        return datetime.timedelta(0)
+
+dt = datetime.datetime.now(PST()) # e.g. 2012-12-20 13:24:55.998646-09:00
+print str(dt).split(".")[0], "PST, west coast / california"
+
+dt = datetime.datetime.now(EST()) # e.g. 2012-12-20 13:24:55.998646-09:00
+print str(dt).split(".")[0], "EST, east coast, toronto, florida, .."
+
+dt = datetime.datetime.now(EDT()) # e.g. 2012-12-20 13:24:55.998646-09:00
+print str(dt).split(".")[0], "EDT, melbourne/sidney, .."
+
+print str(datetime.datetime.now()).split(".")[0], "CET" # print CET but use local
+

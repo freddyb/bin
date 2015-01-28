@@ -1,0 +1,10 @@
+#!/bin/bash
+echo Saving Clipboard contents..
+xclip -out > /tmp/clip.txt 
+echo Throwing vector into clipboard
+cat ~/bin/one_vector.txt | xclip -selection clipboard
+echo Pasting
+xdotool key "Shift+Insert"
+echo Restoring clipboard
+cat /tmp/clip.txt | xclip -selection clipboard
+echo Done

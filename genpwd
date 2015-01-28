@@ -1,0 +1,3 @@
+#!/bin/bash
+tr -cd '[:punct:][:alnum:]' < /dev/urandom | dd bs=`bc <<< 20+${RANDOM:0:1}` count=1 2>/dev/null; echo
+#get chars from /dev/random which HAVE TO be alphanum and stop after 15+random_digit
