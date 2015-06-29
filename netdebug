@@ -46,7 +46,7 @@ def check_tcp():
     -> shell=True is dangerous!!
     '''
     try: 
-        nc_res = subprocess.check_call('echo|nc -v example.org 80', shell=True)
+        nc_res = subprocess.check_call('echo|nc example.org 80 >/dev/null', shell=True)
         return True
     except subprocess.CalledProcessError, e:
         return False
