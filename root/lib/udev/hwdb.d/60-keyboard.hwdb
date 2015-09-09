@@ -780,8 +780,8 @@ keyboard:dmi:bvn*:bvr*:bd*:svnMEDIONNB:pnA555*:pvr*
 
 # Microsoft Natural Ergonomic Keyboard 4000
 keyboard:usb:v045Ep00DB*
- KEYBOARD_KEY_c022d=pageup
- KEYBOARD_KEY_c022e=pagedown
+ KEYBOARD_KEY_c022d=up
+ KEYBOARD_KEY_c022e=down
 
 ###########################################################
 # Micro Star
