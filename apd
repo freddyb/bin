@@ -1,0 +1,2 @@
+#!/bin/sh
+aurora -no-remote -p default
