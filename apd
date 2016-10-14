@@ -1,2 +1,2 @@
 #!/bin/sh
-aurora -no-remote -p default
+nightly -no-remote -p default
