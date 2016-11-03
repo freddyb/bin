@@ -1,0 +1,2 @@
+#!/bin/sh
+play -n -n --combine merge synth pinknoise band -n 1200 1800 tremolo 50 10 tremolo 0.14 70 tremolo 0.2 50 gain  -10
