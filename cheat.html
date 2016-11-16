@@ -43,121 +43,57 @@
         </style>
 </head>
 <body>
-
-<!-- atom -->
-
-<table cellspacing="0" border="0">
-	<thead><tr><td><h3 id="atom.io"><a href="#atom.io">atom.io</a></h3><td></tr></thead>
-    <tbody><tr>
-        <td height="32" align="left">Find Menu Item</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd></td>
-    </tr>
-    <tr>
-        <td height="47" align="left">Find active file (Git based)</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>B</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Find file</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>P</kbd>, <kbd>Ctrl</kbd> + <kbd>T</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Find Symbols in File</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>R</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Find Symbols in Project</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>R</kbd></td>
-    </tr>
-</tbody></table>
-
-<!-- shell/term -->
-<table cellspacing="0" border="0">
-	<thead><tr><td><h3 id="term"><a href="#term">Term</a></h3><td></tr></thead>
-    <tbody><tr>
-        <td height="17" align="left">Delete Word</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>W</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Beginning of Line</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>A</kbd></td>
-    </tr>
-    <tr>
-        <td height="17" align="left">End of line</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>E</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Cut after cursor</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>K</kbd></td>
-    </tr>
-    <tr>
-        <td height="62" align="left">Cut between beginning of line and cursor</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>U</kbd></td>
-    </tr>
-    <tr>
-        <td height="17" align="left">Cut Word</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>W</kbd></td>
-    </tr>
-    <tr>
-        <td height="17" align="left">Clear Screen</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>L</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Transpose Characters</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>P</kbd></td>
-    </tr>
-</tbody></table>
-
-<table cellspacing="0" border="0">
-	<thead><tr><td><h3 id="byobu"><a href="#byobu">byobu</a></h3><td></tr></thead>
-    <tbody><tr>
-        <td height="32" align="left">New Window</td>
-        <td class="shortcut" align="left"><kbd>F2</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Previous Window</td>
-        <td class="shortcut" align="left"><kbd>F3</kbd>, <kbd>Alt</kbd> + <kbd>Left</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Previous Window</td>
-        <td class="shortcut" align="left"><kbd>F4</kbd>, <kbd>Alt</kbd> + <kbd>Right</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Split vertically</td>
-        <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>F2</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Split horizontally</td>
-        <td class="shortcut" align="left"><kbd>Shift</kbd> + <kbd>F2</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Navigate split windows</td>
-        <td class="shortcut" align="left"><kbd>Shift</kbd> + <kbd>Up/Down/Left/Right</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">New session</td>
-        <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F2</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Navigate sessions</td>
-        <td class="shortcut" align="left"><kbd>Alt</kbd> + <kbd>Up/Down</kbd></td>
-    </tr>
-</tbody></table>
-
-<table cellspacing="0" border="0">
-	<thead><tr><td><h3 id="irssi"><a href="#irssi">irssi</a></h3><td></tr></thead>
-    <tbody><tr>
-        <td height="32" align="left">Next Active Window</td>
-         <td class="shortcut" align="left"><kbd>Alt</kbd> + <kbd>A</kbd></td>
-    </tr>
-    <tr>
-        <td height="32" align="left">Previous Window</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>P</kbd></td>
-    </tr>
-    <tr>
-        <td height="17" align="left">Next Window</td>
-         <td class="shortcut" align="left"><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
-    </tr>
-</tbody></table>
-
+<script>
+(function() {
+var data = {
+  "atom.io": {
+    "Find Menu Item": ["<kbd>Ctrl</kbd> + <kbd>\u21E7 Shift</kbd> + <kbd>P</kbd>"],
+    "Find active file (Git based)": ["<kbd>Ctrl</kbd> + <kbd>B</kbd>"],
+    "Find file": ["<kbd>Ctrl</kbd> + <kbd>P</kbd>", "<kbd>Ctrl</kbd> + <kbd>T</kbd>"],
+    "Find Symbols in File": ["<kbd>Ctrl</kbd> + <kbd>R</kbd>"],
+    "Find Symbols in Project": ["<kbd>Ctrl</kbd> + <kbd>\u21E7 Shift</kbd> + <kbd>R</kbd>"],
+  },
+  "Terminal": {
+    "Delete Word": ["<kbd>Ctrl</kbd> + <kbd>W</kbd>"],
+    "Beginning of Line": ["<kbd>Ctrl</kbd> + <kbd>A</kbd>"],
+    "End of line": ["<kbd>Ctrl</kbd> + <kbd>E</kbd>"],
+    "Cut after cursor": ["<kbd>Ctrl</kbd> + <kbd>K</kbd>"],
+    "Cut between beginning of line and cursor": ["<kbd>Ctrl</kbd> + <kbd>U</kbd>"],
+    "Cut Word": ["<kbd>Ctrl</kbd> + <kbd>W</kbd>"],
+    "Clear Screen": ["<kbd>Ctrl</kbd> + <kbd>L</kbd>"],
+    "Transpose Characters": ["<kbd>Ctrl</kbd> + <kbd>P</kbd>"],
+  },
+  "byobu / tmux": {
+    "New Window": ["<kbd>F2</kbd>"],
+    "Previous Window": ["<kbd>F3</kbd>", "<kbd>Alt</kbd> + <kbd>Left</kbd>"],
+    "Previous Window": ["<kbd>F4</kbd>", "<kbd>Alt</kbd> + <kbd>Right</kbd>"],
+    "Split vertically": ["<kbd>Ctrl</kbd> + <kbd>F2</kbd>"],
+    "Split horizontally": ["<kbd>Shift</kbd> + <kbd>F2</kbd>"],
+    "Navigate split windows": ["<kbd>Shift</kbd> + <kbd>Up/Down/Left/Right</kbd>"],
+    "New session": ["<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F2</kbd>"],
+    "Navigate sessions": ["<kbd>Alt</kbd> + <kbd>Up/Down</kbd>"]
+  },
+  "irssi": {
+    "Next Active Window": ["<kbd>Alt</kbd> + <kbd>A</kbd>"],
+    "Previous Window": ["<kbd>Ctrl</kbd> + <kbd>P</kbd>"],
+    "Next Window": ["<kbd>Ctrl</kbd> + <kbd>N</kbd>"]
+  }
+}
+  let tables='';
+  for (let title in data) { // app
+    let items='';
+    for (let item in data[title]) {
+      items += `<tr><td height="32" align="left">${item}</td>
+                <td class="shortcut" align="left">${data[title][item].join(", ")}</td></tr>`
+    }
+    tables += `
+    <table cellspacing="0" border="0">
+    	<thead><tr><td><h3 id="${title}"><a href="${title}">${title}</a></h3><td></tr></thead>
+        <tbody>${items}</tbody></table>
+    `;
+  }
+  document.write(tables);
+})();
+</script>
 </body>
 </html>
