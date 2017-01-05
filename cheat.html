@@ -4,12 +4,10 @@
         <meta charset="utf-8">
         <meta name=viewport content="width=device-width, initial-scale=1">
         <title>Cheat sheet</title>
-
         <style>
         body {
           font-family: sans;
           display:flex;
-
           flex-direction: row;
           flex-wrap:wrap;
         }
@@ -38,7 +36,7 @@
           background-image: linear-gradient(to bottom, #eee, #f9f9f9, #eee);
           padding: 0.5em 0.3em;
         }
-        a,a:active,a:visited { color: black; text-decoration: none; }
+        a, a:active, a:visited { color: black; text-decoration: none; }
         a:hover { text-decoration: underline; }
         </style>
 </head>
@@ -53,6 +51,25 @@ var data = {
     "Find Symbols in File": ["<kbd>Ctrl</kbd> + <kbd>R</kbd>"],
     "Find Symbols in Project": ["<kbd>Ctrl</kbd> + <kbd>\u21E7 Shift</kbd> + <kbd>R</kbd>"],
   },
+  "byobu / tmux": {
+    "New Window": ["<kbd>F2</kbd>"],
+    "Previous Window": ["<kbd>F3</kbd>", "<kbd>Alt</kbd> + <kbd>Left</kbd>"],
+    "Previous Window": ["<kbd>F4</kbd>", "<kbd>Alt</kbd> + <kbd>Right</kbd>"],
+    "Split vertically": ["<kbd>Ctrl</kbd> + <kbd>F2</kbd>"],
+    "Split horizontally": ["<kbd>\u21E7 Shift</kbd> + <kbd>F2</kbd>"],
+    "Navigate split windows": ["<kbd>\u21E7 Shift</kbd> + <kbd>Up/Down/Left/Right</kbd>"],
+    "New session": ["<kbd>Ctrl</kbd> + <kbd>\u21E7 Shift</kbd> + <kbd>F2</kbd>"],
+    "Navigate sessions": ["<kbd>Alt</kbd> + <kbd>Up/Down</kbd>"]
+  },
+  "gdb": {
+    "Step into": ["<kbd>s</kbd>"],
+    "Step over": ["<kbd>n</kbd>"],
+    "Leave function": ["<kbd>finish</kbd>"],
+    "Backtrace": ["<kbd>bt</kbd>"],
+    "inspect stack frame": ["<kbd>f &lt;number&gt;</kbd>"],
+    "show local variables": ["<kbd>i lo[cals]</kbd>"],
+    "print variable": ["<kbd>p &lt;variable name&gt;</kbd>"],
+  },
   "Terminal": {
     "Delete Word": ["<kbd>Ctrl</kbd> + <kbd>W</kbd>"],
     "Beginning of Line": ["<kbd>Ctrl</kbd> + <kbd>A</kbd>"],
@@ -62,16 +79,6 @@ var data = {
     "Cut Word": ["<kbd>Ctrl</kbd> + <kbd>W</kbd>"],
     "Clear Screen": ["<kbd>Ctrl</kbd> + <kbd>L</kbd>"],
     "Transpose Characters": ["<kbd>Ctrl</kbd> + <kbd>P</kbd>"],
-  },
-  "byobu / tmux": {
-    "New Window": ["<kbd>F2</kbd>"],
-    "Previous Window": ["<kbd>F3</kbd>", "<kbd>Alt</kbd> + <kbd>Left</kbd>"],
-    "Previous Window": ["<kbd>F4</kbd>", "<kbd>Alt</kbd> + <kbd>Right</kbd>"],
-    "Split vertically": ["<kbd>Ctrl</kbd> + <kbd>F2</kbd>"],
-    "Split horizontally": ["<kbd>Shift</kbd> + <kbd>F2</kbd>"],
-    "Navigate split windows": ["<kbd>Shift</kbd> + <kbd>Up/Down/Left/Right</kbd>"],
-    "New session": ["<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F2</kbd>"],
-    "Navigate sessions": ["<kbd>Alt</kbd> + <kbd>Up/Down</kbd>"]
   },
   "irssi": {
     "Next Active Window": ["<kbd>Alt</kbd> + <kbd>A</kbd>"],
@@ -89,8 +96,8 @@ var data = {
     tables += `
     <table cellspacing="0" border="0">
     	<thead><tr><td><h3 id="${title}"><a href="${title}">${title}</a></h3><td></tr></thead>
-        <tbody>${items}</tbody></table>
-    `;
+      <tbody>${items}</tbody>
+    </table>`;
   }
   document.write(tables);
 })();
