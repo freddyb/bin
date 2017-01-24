@@ -1,0 +1,16 @@
+#!/bin/bash
+cd ~/mozilla/build/gecko/
+
+location=`whereami predict`
+echo Predicted location $location
+
+if test "$location" = "office-desk"
+then
+  MOZCONFIG=~/mozilla/build/mozilla-build-configs/mozconfig-icecc-ber ./mach build -j6
+else
+  MOZCONFIG=~/mozilla/build/mozilla-build-configs/mozconfig-freddy-default ./mach build -j4
+fi
+
+echo Current location: $location
+
+
