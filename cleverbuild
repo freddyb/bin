@@ -6,7 +6,7 @@ echo Predicted location $location
 
 if test "$location" = "office-desk"
 then
-  MOZCONFIG=~/mozilla/build/mozilla-build-configs/mozconfig-icecc-ber ./mach build -j6
+  MOZCONFIG=~/mozilla/build/mozilla-build-configs/mozconfig-icecc-ber ./mach build
 else
   MOZCONFIG=~/mozilla/build/mozilla-build-configs/mozconfig-freddy-default ./mach build -j4
 fi
