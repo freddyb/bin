@@ -1,7 +1,8 @@
+#!/bin/bash
 amixer -D pulse sset Capture toggle 2>&1 | egrep -q '\[off\]';
 if [ $? -eq 1 ]
 then
-    notify-send XF86AudioMicMute "Microphone Listening"
+    notify-send $0 "Microphone Listening"
 else
-    notify-send XF86AudioMicMute "Microphone Muted"
+    notify-send $0 "Microphone Muted"
 fi
