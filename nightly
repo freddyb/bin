@@ -1,1 +1,7 @@
-/home/freddy/opt/nightly/firefox/firefox
+#!/bin/bash
+#
+# Launch Firefox Nigthly with the Nightly profile.
+#
+
+$HOME/opt/nightly/firefox/firefox -P default $1
+
